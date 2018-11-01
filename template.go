@@ -315,6 +315,8 @@ func stdTagFunc(w io.Writer, tag string, m map[string]interface{}) (int, error) 
 		return w.Write([]byte(strconv.FormatBool(value)))
 	case int:
 		return w.Write([]byte(strconv.Itoa(value)))
+	case int64:
+		return w.Write([]byte(strconv.FormatInt(value, 10)))
 	case uint64:
 		return w.Write([]byte(strconv.FormatUint(value, 10)))
 	case float64:
